@@ -1,0 +1,1500 @@
+[
+  {
+    "id": "syn_cat_air_conditioning",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'air conditioning' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'air_conditioning'",
+    "real_volume": 297,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_christmas_supplies",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'christmas supplies' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'christmas_supplies'",
+    "real_volume": 153,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_health_beauty",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'health beauty' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'health_beauty'",
+    "real_volume": 9670,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_furniture_decor",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'furniture decor' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'furniture_decor'",
+    "real_volume": 8334,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_office_furniture",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'office furniture' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'office_furniture'",
+    "real_volume": 1691,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_electronics",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'electronics' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'electronics'",
+    "real_volume": 2767,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_musical_instruments",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'musical instruments' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'musical_instruments'",
+    "real_volume": 680,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_fashion_underwear_beach",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'fashion underwear beach' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'fashion_underwear_beach'",
+    "real_volume": 131,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_computers",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'computers' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'computers'",
+    "real_volume": 203,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_tablets_printing_image",
+    "category": "adversarial_messy_schema_value",
+    "question": "How many order items were sold in the 'tablets printing image' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'tablets_printing_image'",
+    "real_volume": 83,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": false,
+      "aligned": true,
+      "issue": "The phrase 'tablets printing image' is awkward and unclear - it's unclear if this is a single category name or multiple concepts, and real users would more naturally ask about a specific product category with clearer phrasing."
+    },
+    "notes": "LLM-check flagged this question as awkward-reading; verified against the real sandbox - the category name IS genuinely stored this way in Olist's category_translation table (typo/duplication in the source data itself, not a pipeline bug). Kept as a robustness test: the Query Writer must use the real stored value even when it reads oddly."
+  },
+  {
+    "id": "syn_cat_toys",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'toys' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'toys'",
+    "real_volume": 4117,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_market_place",
+    "category": "adversarial_messy_schema_value",
+    "question": "How many order items were sold in the 'market place' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'market_place'",
+    "real_volume": 311,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": false,
+      "issue": "The SQL filters for 'market_place' but the question asks for 'market place' (with a space), suggesting a potential mismatch between the question's intent and the actual category name in the database."
+    },
+    "notes": "LLM-check flagged this question as awkward-reading; verified against the real sandbox - the category name IS genuinely stored this way in Olist's category_translation table (typo/duplication in the source data itself, not a pipeline bug). Kept as a robustness test: the Query Writer must use the real stored value even when it reads oddly."
+  },
+  {
+    "id": "syn_cat_home_comfort_2",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'home comfort 2' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'home_comfort_2'",
+    "real_volume": 30,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_perfumery",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'perfumery' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'perfumery'",
+    "real_volume": 3419,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_baby",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'baby' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'baby'",
+    "real_volume": 3065,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_audio",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'audio' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'audio'",
+    "real_volume": 364,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_construction_tools_lights",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'construction tools lights' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'construction_tools_lights'",
+    "real_volume": 304,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_furniture_mattress_and_upholst",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'furniture mattress and upholstery' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'furniture_mattress_and_upholstery'",
+    "real_volume": 38,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_furniture_living_room",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'furniture living room' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'furniture_living_room'",
+    "real_volume": 503,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_small_appliances_home_oven_and",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'small appliances home oven and coffee' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'small_appliances_home_oven_and_coffee'",
+    "real_volume": 76,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_arts_and_craftmanship",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'arts and craftmanship' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'arts_and_craftmanship'",
+    "real_volume": 24,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_sports_leisure",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'sports leisure' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'sports_leisure'",
+    "real_volume": 8641,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_costruction_tools_tools",
+    "category": "adversarial_messy_schema_value",
+    "question": "How many order items were sold in the 'costruction tools tools' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'costruction_tools_tools'",
+    "real_volume": 103,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": false,
+      "aligned": false,
+      "issue": "The question contains a typo ('costruction' instead of 'construction') and the category name appears duplicated ('tools tools'), making it unclear what the user is actually asking for, and the SQL searches for a malformed category name that likely doesn't exist in the database."
+    },
+    "notes": "LLM-check flagged this question as awkward-reading; verified against the real sandbox - the category name IS genuinely stored this way in Olist's category_translation table (typo/duplication in the source data itself, not a pipeline bug). Kept as a robustness test: the Query Writer must use the real stored value even when it reads oddly."
+  },
+  {
+    "id": "syn_cat_books_general_interest",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'books general interest' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'books_general_interest'",
+    "real_volume": 553,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_bed_bath_table",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'bed bath table' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'bed_bath_table'",
+    "real_volume": 11115,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_stationery",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'stationery' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'stationery'",
+    "real_volume": 2517,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_home_appliances",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'home appliances' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'home_appliances'",
+    "real_volume": 771,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_computers_accessories",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'computers accessories' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'computers_accessories'",
+    "real_volume": 7827,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_la_cuisine",
+    "category": "adversarial_messy_schema_value",
+    "question": "How many order items were sold in the 'la cuisine' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'la_cuisine'",
+    "real_volume": 14,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": false,
+      "issue": "The SQL filters for 'la_cuisine' with underscores, but the question uses 'la cuisine' with a space, suggesting a mismatch between the natural language category name and the database representation."
+    },
+    "notes": "LLM-check flagged this question as awkward-reading; verified against the real sandbox - the category name IS genuinely stored this way in Olist's category_translation table (typo/duplication in the source data itself, not a pipeline bug). Kept as a robustness test: the Query Writer must use the real stored value even when it reads oddly."
+  },
+  {
+    "id": "syn_cat_food_drink",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'food drink' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'food_drink'",
+    "real_volume": 278,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_luggage_accessories",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'luggage accessories' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'luggage_accessories'",
+    "real_volume": 1092,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_construction_tools_constructio",
+    "category": "adversarial_messy_schema_value",
+    "question": "How many order items were sold in the 'construction tools construction' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'construction_tools_construction'",
+    "real_volume": 929,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": false,
+      "aligned": true,
+      "issue": "The question contains a redundant/awkward category name 'construction tools construction' that reads unnatural and suggests a data quality or naming issue."
+    },
+    "notes": "LLM-check flagged this question as awkward-reading; verified against the real sandbox - the category name IS genuinely stored this way in Olist's category_translation table (typo/duplication in the source data itself, not a pipeline bug). Kept as a robustness test: the Query Writer must use the real stored value even when it reads oddly."
+  },
+  {
+    "id": "syn_cat_books_technical",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'books technical' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'books_technical'",
+    "real_volume": 267,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_industry_commerce_and_business",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'industry commerce and business' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'industry_commerce_and_business'",
+    "real_volume": 268,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_furniture_bedroom",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'furniture bedroom' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'furniture_bedroom'",
+    "real_volume": 109,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_signaling_and_security",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'signaling and security' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'signaling_and_security'",
+    "real_volume": 199,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_books_imported",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'books imported' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'books_imported'",
+    "real_volume": 60,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_fashion_shoes",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'fashion shoes' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'fashion_shoes'",
+    "real_volume": 262,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_kitchen_dining_laundry_garden_",
+    "category": "adversarial_messy_schema_value",
+    "question": "How many order items were sold in the 'kitchen dining laundry garden furniture' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'kitchen_dining_laundry_garden_furniture'",
+    "real_volume": 281,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": false,
+      "aligned": true,
+      "issue": "The category name 'kitchen dining laundry garden furniture' is awkwardly phrased and doesn't read like natural business language - it should be formatted as separate categories or use more natural phrasing like 'kitchen, dining, laundry, garden, or furniture items'."
+    },
+    "notes": "LLM-check flagged this question as awkward-reading; verified against the real sandbox - the category name IS genuinely stored this way in Olist's category_translation table (typo/duplication in the source data itself, not a pipeline bug). Kept as a robustness test: the Query Writer must use the real stored value even when it reads oddly."
+  },
+  {
+    "id": "syn_cat_food",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'food' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'food'",
+    "real_volume": 510,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_fashion_bags_accessories",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'fashion bags accessories' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'fashion_bags_accessories'",
+    "real_volume": 2031,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_costruction_tools_garden",
+    "category": "adversarial_messy_schema_value",
+    "question": "How many order items were sold in the 'costruction tools garden' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'costruction_tools_garden'",
+    "real_volume": 238,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": false,
+      "aligned": true,
+      "issue": "The question contains a typo ('costruction' instead of 'construction') which makes it read unnaturally, though the SQL correctly searches for this misspelled category name."
+    },
+    "notes": "LLM-check flagged this question as awkward-reading; verified against the real sandbox - the category name IS genuinely stored this way in Olist's category_translation table (typo/duplication in the source data itself, not a pipeline bug). Kept as a robustness test: the Query Writer must use the real stored value even when it reads oddly."
+  },
+  {
+    "id": "syn_cat_cds_dvds_musicals",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'cds dvds musicals' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'cds_dvds_musicals'",
+    "real_volume": 14,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_watches_gifts",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'watches gifts' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'watches_gifts'",
+    "real_volume": 5991,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_garden_tools",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'garden tools' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'garden_tools'",
+    "real_volume": 4347,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_cool_stuff",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'cool stuff' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'cool_stuff'",
+    "real_volume": 3796,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_home_appliances_2",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'home appliances 2' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'home_appliances_2'",
+    "real_volume": 238,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_cine_photo",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'cine photo' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'cine_photo'",
+    "real_volume": 72,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_music",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'music' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'music'",
+    "real_volume": 38,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_flowers",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'flowers' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'flowers'",
+    "real_volume": 33,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_diapers_and_hygiene",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'diapers and hygiene' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'diapers_and_hygiene'",
+    "real_volume": 39,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_portable_kitchen_and_food_prep",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'portable kitchen and food preparation equipment' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'portable_kitchen_and_food_preparation_equipment'",
+    "real_volume": 15,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_fashion_male_clothing",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'fashion male clothing' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'fashion_male_clothing'",
+    "real_volume": 132,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_art",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'art' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'art'",
+    "real_volume": 209,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_pc_gamer",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'pc gamer' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'pc_gamer'",
+    "real_volume": 9,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_auto",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'auto' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'auto'",
+    "real_volume": 4235,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_small_appliances",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'small appliances' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'small_appliances'",
+    "real_volume": 679,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_pet_shop",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'pet shop' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'pet_shop'",
+    "real_volume": 1947,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_party_supplies",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'party supplies' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'party_supplies'",
+    "real_volume": 43,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_agro_industry_and_commerce",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'agro industry and commerce' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'agro_industry_and_commerce'",
+    "real_volume": 212,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_dvds_blu_ray",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'dvds blu ray' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'dvds_blu_ray'",
+    "real_volume": 64,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_housewares",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'housewares' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'housewares'",
+    "real_volume": 6964,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_telephony",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'telephony' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'telephony'",
+    "real_volume": 4545,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_fixed_telephony",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'fixed telephony' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'fixed_telephony'",
+    "real_volume": 264,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_home_confort",
+    "category": "adversarial_messy_schema_value",
+    "question": "How many order items were sold in the 'home confort' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'home_confort'",
+    "real_volume": 434,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": false,
+      "aligned": true,
+      "issue": "The question uses 'home confort' (misspelled) while the SQL queries for 'home_confort' (with underscore), creating inconsistency; additionally, 'home confort' is not standard e-commerce terminology."
+    },
+    "notes": "LLM-check flagged this question as awkward-reading; verified against the real sandbox - the category name IS genuinely stored this way in Olist's category_translation table (typo/duplication in the source data itself, not a pipeline bug). Kept as a robustness test: the Query Writer must use the real stored value even when it reads oddly."
+  },
+  {
+    "id": "syn_cat_fashion_sport",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'fashion sport' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'fashion_sport'",
+    "real_volume": 30,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_drinks",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'drinks' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'drinks'",
+    "real_volume": 379,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_consoles_games",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'consoles games' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'consoles_games'",
+    "real_volume": 1137,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_home_construction",
+    "category": "aggregation",
+    "question": "How many order items were sold in the 'home construction' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'home_construction'",
+    "real_volume": 604,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_construction_tools_safety",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'construction tools safety' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'construction_tools_safety'",
+    "real_volume": 194,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_fashio_female_clothing",
+    "category": "adversarial_messy_schema_value",
+    "question": "How many order items were sold in the 'fashio female clothing' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'fashio_female_clothing'",
+    "real_volume": 48,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": false,
+      "aligned": true,
+      "issue": "The question contains a typo ('fashio female clothing' should be 'fashion female clothing') and reads awkwardly; a real user would likely say 'fashion women's clothing' or similar."
+    },
+    "notes": "LLM-check flagged this question as awkward-reading; verified against the real sandbox - the category name IS genuinely stored this way in Olist's category_translation table (typo/duplication in the source data itself, not a pipeline bug). Kept as a robustness test: the Query Writer must use the real stored value even when it reads oddly."
+  },
+  {
+    "id": "syn_cat_fashion_childrens_clothes",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'fashion childrens clothes' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'fashion_childrens_clothes'",
+    "real_volume": 8,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_cat_security_and_services",
+    "category": "rare_schema_corner",
+    "question": "How many order items were sold in the 'security and services' category?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name WHERE ct.product_category_name_english = 'security_and_services'",
+    "real_volume": 2,
+    "generation_method": "template: category-aggregation, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 1,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_PE",
+    "category": "comparative",
+    "question": "How many customers are in PE compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('PE', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_RO",
+    "category": "comparative",
+    "question": "How many customers are in RO compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('RO', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_PB",
+    "category": "comparative",
+    "question": "How many customers are in PB compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('PB', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_AP",
+    "category": "comparative",
+    "question": "How many customers are in AP compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('AP', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_TO",
+    "category": "comparative",
+    "question": "How many customers are in TO compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('TO', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": false,
+      "aligned": true,
+      "issue": "The question uses ambiguous state abbreviations 'TO' and 'SP' without context, making it unclear to someone unfamiliar with the dataset (likely Brazilian states Tocantins and S\u00e3o Paulo, but not obvious from the question alone)."
+    }
+  },
+  {
+    "id": "syn_state_SE",
+    "category": "comparative",
+    "question": "How many customers are in SE compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('SE', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_RN",
+    "category": "comparative",
+    "question": "How many customers are in RN compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('RN', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_AC",
+    "category": "comparative",
+    "question": "How many customers are in AC compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('AC', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_RS",
+    "category": "comparative",
+    "question": "How many customers are in RS compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('RS', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_CE",
+    "category": "comparative",
+    "question": "How many customers are in CE compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('CE', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": false,
+      "aligned": true,
+      "issue": "The question uses ambiguous state abbreviations 'CE' and 'SP' without context, making it unclear to most users; a real business user would likely say 'Cear\u00e1 vs S\u00e3o Paulo' or provide full state names."
+    }
+  },
+  {
+    "id": "syn_state_PR",
+    "category": "comparative",
+    "question": "How many customers are in PR compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('PR', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_MT",
+    "category": "comparative",
+    "question": "How many customers are in MT compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('MT', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_AL",
+    "category": "comparative",
+    "question": "How many customers are in AL compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('AL', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_SC",
+    "category": "comparative",
+    "question": "How many customers are in SC compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('SC', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_MS",
+    "category": "comparative",
+    "question": "How many customers are in MS compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('MS', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_PI",
+    "category": "comparative",
+    "question": "How many customers are in PI compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('PI', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_RR",
+    "category": "comparative",
+    "question": "How many customers are in RR compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('RR', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_GO",
+    "category": "comparative",
+    "question": "How many customers are in GO compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('GO', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_ES",
+    "category": "comparative",
+    "question": "How many customers are in ES compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('ES', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_AM",
+    "category": "comparative",
+    "question": "How many customers are in AM compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('AM', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": false,
+      "aligned": true,
+      "issue": "The question uses ambiguous state abbreviations (AM, SP) without context, making it unclear to most users; a real business user would likely say 'Amazonas vs S\u00e3o Paulo' or provide full state names."
+    }
+  },
+  {
+    "id": "syn_state_RJ",
+    "category": "comparative",
+    "question": "How many customers are in RJ compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('RJ', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_BA",
+    "category": "comparative",
+    "question": "How many customers are in BA compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('BA', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_MG",
+    "category": "comparative",
+    "question": "How many customers are in MG compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('MG', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_MA",
+    "category": "comparative",
+    "question": "How many customers are in MA compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('MA', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_DF",
+    "category": "comparative",
+    "question": "How many customers are in DF compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('DF', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_state_PA",
+    "category": "comparative",
+    "question": "How many customers are in PA compared to SP?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers WHERE customer_state IN ('PA', 'SP') GROUP BY customer_state",
+    "generation_method": "template: state-comparison, parameterized over real schema value",
+    "validated": true,
+    "validated_row_count": 2,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_adv_seller_orders",
+    "category": "adversarial_join_grain",
+    "question": "How many orders has each seller fulfilled?",
+    "gold_sql": "SELECT seller_id, COUNT(DISTINCT order_id) as order_count FROM order_items GROUP BY seller_id",
+    "wrong_sql_pattern": "COUNT(order_id) without DISTINCT -- overcounts multi-item orders",
+    "generation_method": "template: adversarial join-grain variant",
+    "validated": true,
+    "validated_row_count": 3095,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  },
+  {
+    "id": "syn_adv_customer_by_state",
+    "category": "adversarial_customer_key",
+    "question": "How many unique customers are in each state?",
+    "gold_sql": "SELECT customer_state, COUNT(DISTINCT customer_unique_id) as cnt FROM customers GROUP BY customer_state",
+    "wrong_sql_pattern": "COUNT(DISTINCT customer_id) -- counts order-level IDs, not real customers",
+    "generation_method": "template: adversarial customer-key variant",
+    "validated": true,
+    "validated_row_count": 27,
+    "llm_check": {
+      "natural": true,
+      "aligned": true,
+      "issue": null
+    }
+  }
+]

@@ -1,0 +1,131 @@
+[
+  {
+    "id": "gs001",
+    "category": "simple_lookup",
+    "question": "How many orders have the status 'delivered'?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM orders WHERE order_status = 'delivered'",
+    "notes": "Tests correct status filtering \u00e2\u20ac\u201d Stage 2 found 96.5% delivered, rest matters"
+  },
+  {
+    "id": "gs002",
+    "category": "simple_lookup",
+    "question": "How many distinct sellers are there?",
+    "gold_sql": "SELECT COUNT(DISTINCT seller_id) as cnt FROM sellers",
+    "notes": "Straightforward, low ambiguity"
+  },
+  {
+    "id": "gs003",
+    "category": "aggregation",
+    "question": "What is the average payment value across all orders?",
+    "gold_sql": "SELECT AVG(payment_value) as avg_payment FROM order_payments",
+    "notes": "Simple aggregation, one table"
+  },
+  {
+    "id": "gs004",
+    "category": "aggregation",
+    "question": "Which product category has the most order items?",
+    "gold_sql": "SELECT ct.product_category_name_english as category, COUNT(*) as item_count FROM order_items oi JOIN products p ON oi.product_id = p.product_id JOIN category_translation ct ON p.product_category_name = ct.product_category_name GROUP BY ct.product_category_name_english ORDER BY item_count DESC LIMIT 1",
+    "notes": "Multi-table join through category translation, real GROUP BY needed (73 categories)"
+  },
+  {
+    "id": "gs005",
+    "category": "aggregation",
+    "question": "How many unique customers do we have?",
+    "gold_sql": "SELECT COUNT(DISTINCT customer_unique_id) as cnt FROM customers",
+    "notes": "CANONICAL ADVERSARIAL CASE (risk #7) \u00e2\u20ac\u201d customer_id != customer_unique_id, tested in spike"
+  },
+  {
+    "id": "gs006",
+    "category": "aggregation",
+    "question": "How many orders were placed in total?",
+    "gold_sql": "SELECT COUNT(DISTINCT order_id) as cnt FROM orders",
+    "notes": "Baseline single-table version of the join-grain case"
+  },
+  {
+    "id": "gs007",
+    "category": "aggregation",
+    "question": "How many orders were placed, counting each order once, even though some orders contain multiple items?",
+    "gold_sql": "SELECT COUNT(DISTINCT order_id) as cnt FROM orders",
+    "notes": "FIXED after live Query Writer testing revealed a bug in the original gold_sql: it joined order_items unnecessarily, silently excluding 775 real orders (603 unavailable + 164 canceled, verified against the sandbox) that were placed but never got a line-item row. 'Orders placed' means all orders in the orders table, full stop - no join needed. See gs018 for the actual join-grain adversarial test, which this question no longer covers."
+  },
+  {
+    "id": "gs008",
+    "category": "trend",
+    "question": "How did the number of orders change month over month in 2017?",
+    "gold_sql": "SELECT DATE_TRUNC('month', order_purchase_timestamp) as month, COUNT(DISTINCT order_id) as order_count FROM orders WHERE order_purchase_timestamp >= '2017-01-01' AND order_purchase_timestamp < '2018-01-01' GROUP BY month ORDER BY month",
+    "notes": "Correct date bucketing + correct distinct-order counting combined"
+  },
+  {
+    "id": "gs009",
+    "category": "trend",
+    "question": "What was the average review score by month in 2018?",
+    "gold_sql": "SELECT DATE_TRUNC('month', r.review_creation_date) as month, AVG(r.review_score) as avg_score FROM order_reviews r WHERE r.review_creation_date >= '2018-01-01' AND r.review_creation_date < '2019-01-01' GROUP BY month ORDER BY month",
+    "notes": "Time-series aggregation on a different date column than orders"
+  },
+  {
+    "id": "gs010",
+    "category": "comparative",
+    "question": "Compare the average delivery time (purchase to customer delivery) between Sao Paulo (SP) and Rio de Janeiro (RJ) customers, for delivered orders only.",
+    "gold_sql": "SELECT c.customer_state, AVG(DATE_DIFF('day', o.order_purchase_timestamp, o.order_delivered_customer_date)) as avg_delivery_days FROM orders o JOIN customers c ON o.customer_id = c.customer_id WHERE c.customer_state IN ('SP', 'RJ') AND o.order_status = 'delivered' AND o.order_delivered_customer_date IS NOT NULL GROUP BY c.customer_state",
+    "notes": "Multi-entity comparison; must exclude null delivery dates, must filter to delivered status explicitly"
+  },
+  {
+    "id": "gs011",
+    "category": "comparative",
+    "question": "Which state has more sellers, SP or RJ, and by how many?",
+    "gold_sql": "SELECT seller_state, COUNT(DISTINCT seller_id) as seller_count FROM sellers WHERE seller_state IN ('SP', 'RJ') GROUP BY seller_state",
+    "notes": "Simpler comparative case, single table"
+  },
+  {
+    "id": "gs012",
+    "category": "rare_schema_corner",
+    "question": "How many orders used more than 10 payment installments?",
+    "gold_sql": "SELECT COUNT(DISTINCT order_id) as cnt FROM order_payments WHERE payment_installments > 10",
+    "notes": "Low-volume corner of the schema \u00e2\u20ac\u201d payment_installments long tail"
+  },
+  {
+    "id": "gs013",
+    "category": "rare_schema_corner",
+    "question": "How many reviews have a written comment attached?",
+    "gold_sql": "SELECT COUNT(*) as cnt FROM order_reviews WHERE review_comment_message IS NOT NULL",
+    "notes": "Stage 2 found only 41.3% of reviews have a comment \u00e2\u20ac\u201d null-handling matters here directly"
+  },
+  {
+    "id": "gs014",
+    "category": "ambiguous",
+    "question": "Why are sales down?",
+    "gold_sql": null,
+    "expected_behavior": "clarify",
+    "notes": "No single correct query exists \u00e2\u20ac\u201d correct system behavior is a clarifying question"
+  },
+  {
+    "id": "gs015",
+    "category": "ambiguous",
+    "question": "How's delivery performance looking?",
+    "gold_sql": null,
+    "expected_behavior": "clarify",
+    "notes": "'Performance' is undefined \u00e2\u20ac\u201d ambiguous on purpose"
+  },
+  {
+    "id": "gs016",
+    "category": "out_of_scope",
+    "question": "Update the price of product X to $50.",
+    "gold_sql": null,
+    "expected_behavior": "refuse",
+    "notes": "Destructive intent \u00e2\u20ac\u201d must be refused by the Router, never reach Query Writer"
+  },
+  {
+    "id": "gs017",
+    "category": "adversarial_hallucination",
+    "question": "What's the average customer satisfaction rating?",
+    "gold_sql": "SELECT AVG(review_score) as avg_score FROM order_reviews",
+    "notes": "CANONICAL ADVERSARIAL CASE (risk #4) \u00e2\u20ac\u201d tempts a hallucinated column; tested in spike"
+  },
+  {
+    "id": "gs018",
+    "category": "adversarial_join_grain",
+    "question": "How many orders included at least one item priced over R$150?",
+    "gold_sql": "SELECT COUNT(DISTINCT order_id) as cnt FROM order_items WHERE price > 150",
+    "notes": "Replacement for gs007 as the real join-grain adversarial test. This question genuinely requires touching order_items.price, so it cannot be sidestepped by skipping the join (unlike the old gs007). Verified: naive COUNT(order_id) gives 22,455, correct COUNT(DISTINCT order_id) gives 21,026 - a real 1,429-order overcounting gap if DISTINCT is omitted."
+  }
+]
