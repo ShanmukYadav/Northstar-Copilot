@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "updated": "2026-07-21",
+  "sprint": 3,
+  "agents": {
+    "router": {
+      "version": "3.0.0",
+      "responsibility": "Classify question into standard_query | comparative | ambiguous | out_of_scope",
+      "contract": "router_output",
+      "gateway_task": "router",
+      "tools_allowed": [],
+      "owner": "Shanmuk"
+    },
+    "clarifier": {
+      "version": "1.0.0",
+      "responsibility": "Turn ambiguous questions into a clarifying question, stated assumption, or escalate",
+      "contract": "clarifier_output",
+      "gateway_task": "clarifier",
+      "tools_allowed": ["memory_state"],
+      "owner": "Shanmuk"
+    },
+    "planner": {
+      "version": "1.0.0",
+      "responsibility": "Decompose comparative questions into 1-4 ordered query intents",
+      "contract": "planner_output",
+      "gateway_task": "planner",
+      "tools_allowed": ["schema_lookup"],
+      "owner": "Shanmuk"
+    },
+    "query_writer": {
+      "version": "3.0.0",
+      "responsibility": "Produce one DuckDB SELECT grounded in real Olist schema",
+      "contract": "query_writer_output",
+      "gateway_task": "query_writer",
+      "tools_allowed": ["schema_lookup", "sql_sandbox"],
+      "owner": "Anvay"
+    },
+    "verifier": {
+      "version": "2.0.0",
+      "responsibility": "Deterministic sanity checks + execute SQL before any answer reaches the user",
+      "contract": "verifier_output",
+      "gateway_task": null,
+      "tools_allowed": ["sql_sandbox", "result_verification"],
+      "owner": "Vishal"
+    },
+    "narrator": {
+      "version": "3.0.0",
+      "responsibility": "Plain-language answer only from verified result rows; expose display SQL",
+      "contract": "narrator_output",
+      "gateway_task": "narrator",
+      "tools_allowed": ["charting_optional"],
+      "owner": "Ankit"
+    }
+  }
+}
