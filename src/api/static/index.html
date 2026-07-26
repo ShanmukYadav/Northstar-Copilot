@@ -61,7 +61,7 @@
     }
     .status.answered { background: rgba(61, 214, 140, 0.15); color: var(--ok); }
     .status.needs_clarification { background: rgba(245, 165, 36, 0.15); color: var(--warn); }
-    .status.refused, .status.escalate, .status.error { background: rgba(243, 18, 96, 0.15); color: var(--bad); }
+    .status.refused, .status.escalate, .status.error, .status.cannot_answer { background: rgba(243, 18, 96, 0.15); color: var(--bad); }
     .answer { font-size: 1.05rem; line-height: 1.5; margin: 0.75rem 0; white-space: pre-wrap; }
     .meta { color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap; gap: 1rem; }
     pre.sql {
@@ -78,7 +78,11 @@
   <div class="wrap">
     <header>
       <h1>Northstar Insight Copilot</h1>
-      <p>Ask a business question. Get a verified answer with the SQL shown.</p>
+      <p>Ask a business question over the Olist e-commerce dataset. Get a verified answer with the SQL shown.</p>
+      <p style="margin-top:0.5rem;font-size:0.85rem;color:var(--muted);">
+        Schema-grounded only: no email/phone/name in this data. Customers have id, unique id, zip, city, state.
+        Questions needing missing fields are declined with an explanation—not a guessed answer.
+      </p>
       <span class="badge" id="healthBadge">checking…</span>
     </header>
 

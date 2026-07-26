@@ -1,24 +1,16 @@
 """
 Query Writer agent - produces SQL grounded in the real Olist schema.
 
-v3 (pipeline wiring): added retry_feedback param, implementing the retry-once rule
-from architecture.md ("if the Verifier fails, retry the Query Writer step exactly once
-with the failure reason as added context") - this existed as a diagram edge before now,
-not as code. Also now returns token usage for real cost tracking (PRD section 6/7
-cost guardrail currently only has a projected number).
-
-Design source: docs/stage3_design/agent_contracts.json (query_writer_output contract).
+Sprint 3/4: model calls via LLM gateway; supports retry_feedback (retry-once rule).
 """
-import os
-import json
-from dotenv import load_dotenv
-load_dotenv()
-from openai import OpenAI
+from __future__ import annotations
 
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.environ["OPENROUTER_API_KEY"],
-)
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+from gateway.client import complete
 
 SCHEMA_CONTEXT = """
 TABLES (DuckDB, read-only):
@@ -50,6 +42,18 @@ CRITICAL RULES (violating these produces a wrong answer, verified against real d
    two timestamps and CAST the result to INTEGER - DuckDB does not support casting an
    INTERVAL to INTEGER and this will fail at execution. DATE_DIFF is the only
    supported approach for date-difference calculations in this environment.
+7. SELECT LIST DISCIPLINE: return ONLY columns the question asks for. Do not add
+   extra COUNT(*) / sample-size columns "for context" unless the question asks how
+   many orders/rows.
+8. NO SILENT ROUNDING: do not wrap aggregates in ROUND(...) unless the user asks for
+   rounded/display values. Return full-precision AVG/SUM so results are auditable.
+9. COMPARISONS: prefer ONE query with GROUP BY / FILTER / CASE when comparing a few
+   entities (e.g. SP vs RJ).
+10. PRODUCT CATEGORIES (user-facing): products.product_category_name is Portuguese
+    (e.g. cama_mesa_banho). When the question asks for a product category name,
+    JOIN category_translation and return product_category_name_english
+    (e.g. bed_bath_table). Never return only the Portuguese key for a ranking/
+    "which category" answer unless the user explicitly asks for Portuguese labels.
 """
 
 QUERY_WRITER_SYSTEM_PROMPT = f"""You are a SQL query writer for a business-analytics copilot over a real e-commerce dataset.
@@ -64,15 +68,31 @@ Respond with ONLY a JSON object, no other text:
   "tables_used": ["table1", "table2"],
   "columns_used": ["col1", "col2"],
   "assumptions_stated": ["assumption 1", "assumption 2"],
-  "cannot_answer": false
+  "cannot_answer": false,
+  "cannot_answer_reason": null,
+  "missing_fields": []
 }}
 
-If the question cannot be answered from the schema above, set cannot_answer to true and
-sql to null - do not invent columns or tables to force an answer.
+If the question cannot be answered from the schema above:
+- set cannot_answer to true and sql to null
+- do NOT invent columns or tables
+- set cannot_answer_reason to one clear sentence naming what is missing
+  (e.g. "Olist customers table has no email column")
+- set missing_fields to a short list of missing concepts (e.g. ["email"])
 """
 
 
-def write_query(question: str, retry_feedback: str = None) -> dict:
+def _parse_json(raw: str) -> dict:
+    text = raw.strip()
+    if text.startswith("```"):
+        text = text.split("```")[1]
+        if text.startswith("json"):
+            text = text[4:]
+        text = text.strip()
+    return json.loads(text)
+
+
+def write_query(question: str, retry_feedback: str | None = None) -> dict:
     user_content = question
     if retry_feedback:
         user_content = (
@@ -82,39 +102,39 @@ def write_query(question: str, retry_feedback: str = None) -> dict:
             f"Write a corrected query that fixes this specific issue."
         )
 
-    response = client.chat.completions.create(
-        model="anthropic/claude-haiku-4.5",
-        messages=[
+    use_cache = retry_feedback is None
+    gw = complete(
+        "query_writer",
+        [
             {"role": "system", "content": QUERY_WRITER_SYSTEM_PROMPT},
             {"role": "user", "content": user_content},
         ],
-        temperature=0,
+        use_cache=use_cache,
     )
-    raw = response.choices[0].message.content.strip()
-
-    if raw.startswith("```"):
-        raw = raw.split("```")[1]
-        if raw.startswith("json"):
-            raw = raw[4:]
-        raw = raw.strip()
-
-    usage = {
-        "prompt_tokens": response.usage.prompt_tokens,
-        "completion_tokens": response.usage.completion_tokens,
-    } if response.usage else None
-
+    usage = gw.get("usage")
     try:
-        result = json.loads(raw)
-    except json.JSONDecodeError as e:
-        return {"sql": None, "tables_used": [], "columns_used": [],
-                "assumptions_stated": [], "cannot_answer": True,
-                "parse_error": f"{e}, raw={raw[:200]}", "_usage": usage}
+        result = _parse_json(gw["content"])
+    except (json.JSONDecodeError, KeyError) as e:
+        return {
+            "sql": None,
+            "tables_used": [],
+            "columns_used": [],
+            "assumptions_stated": [],
+            "cannot_answer": True,
+            "parse_error": f"{e}, raw={str(gw.get('content'))[:200]}",
+            "_usage": usage,
+            "_cost_usd": gw.get("cost_usd", 0.0),
+            "_model": gw.get("model"),
+        }
 
     result["_usage"] = usage
+    result["_cost_usd"] = gw.get("cost_usd", 0.0)
+    result["_model"] = gw.get("model")
+    result["_cached"] = gw.get("cached", False)
     return result
 
 
 if __name__ == "__main__":
-    import sys
-    q = sys.argv[1] if len(sys.argv) > 1 else "How many unique customers do we have?"
+    import sys as _sys
+    q = _sys.argv[1] if len(_sys.argv) > 1 else "How many unique customers do we have?"
     print(json.dumps(write_query(q), indent=2))

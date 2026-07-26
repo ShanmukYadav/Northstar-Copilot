@@ -1,29 +1,17 @@
 """
 Narrator agent - turns a verified result into a plain-language answer.
 
-v3 (pipeline wiring): now returns token usage for real cost tracking.
-
-MODEL TIER NOTE: architecture.md section 5 specs Claude Sonnet 5 as default; this file
-calls Haiku 4.5 as a deliberate temporary simplification, matching evaluation_plan.md
-section 6's planned Haiku-vs-Sonnet A/B - treat this as that A/B's cheap-path arm.
-To switch to Sonnet: confirm the exact current OpenRouter slug at openrouter.ai/models
-before hardcoding it.
-
-CRITICAL per the sandbox-leak design (agent_contract_result_verifier.md): this agent
-receives ONLY the verified result set and the already-sanitized SQL.
-
-Design source: docs/stage3_design/agent_contracts.json (narrator_output contract).
+Sprint 3/4: gateway-routed. Default task=narrator (cheap path / Haiku).
+Pass strong=True to use narrator_strong (Sonnet) for A/B comparisons.
 """
-import os
-import json
-from dotenv import load_dotenv
-load_dotenv()
-from openai import OpenAI
+from __future__ import annotations
 
-client = OpenAI(
-    base_url="https://openrouter.ai/api/v1",
-    api_key=os.environ["OPENROUTER_API_KEY"],
-)
+import json
+import os
+import sys
+
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+from gateway.client import complete
 
 NARRATOR_SYSTEM_PROMPT = """You are a business analyst explaining a query result to a non-technical user.
 
@@ -40,41 +28,55 @@ Respond with ONLY a JSON object, no other text:
 """
 
 
-def narrate(question: str, sql: str, result_rows: list, assumptions: list = None) -> dict:
+def _parse_json(raw: str) -> dict:
+    text = raw.strip()
+    if text.startswith("```"):
+        text = text.split("```")[1]
+        if text.startswith("json"):
+            text = text[4:]
+        text = text.strip()
+    return json.loads(text)
+
+
+def narrate(
+    question: str,
+    sql: str,
+    result_rows: list,
+    assumptions: list | None = None,
+    *,
+    strong: bool = False,
+) -> dict:
     context = f"""Question: {question}
 SQL (already verified): {sql}
 Result rows: {result_rows}
 Assumptions made by the query: {assumptions or []}
 """
-    response = client.chat.completions.create(
-        model="anthropic/claude-haiku-4.5",  # TEMPORARY - see module docstring
-        messages=[
+    task = "narrator_strong" if strong else "narrator"
+    gw = complete(
+        task,
+        [
             {"role": "system", "content": NARRATOR_SYSTEM_PROMPT},
             {"role": "user", "content": context},
         ],
-        temperature=0,
     )
-    raw = response.choices[0].message.content.strip()
-
-    if raw.startswith("```"):
-        raw = raw.split("```")[1]
-        if raw.startswith("json"):
-            raw = raw[4:]
-        raw = raw.strip()
-
-    usage = {
-        "prompt_tokens": response.usage.prompt_tokens,
-        "completion_tokens": response.usage.completion_tokens,
-    } if response.usage else None
-
+    usage = gw.get("usage")
     try:
-        result = json.loads(raw)
-    except json.JSONDecodeError as e:
-        return {"answer_text": None, "confidence_label": "low_escalated",
-                "parse_error": f"{e}, raw={raw[:200]}", "_usage": usage}
+        result = _parse_json(gw["content"])
+    except (json.JSONDecodeError, KeyError) as e:
+        return {
+            "answer_text": None,
+            "confidence_label": "low_escalated",
+            "parse_error": f"{e}, raw={str(gw.get('content'))[:200]}",
+            "_usage": usage,
+            "_cost_usd": gw.get("cost_usd", 0.0),
+            "_model": gw.get("model"),
+        }
 
     result["sql_shown"] = sql
     result["_usage"] = usage
+    result["_cost_usd"] = gw.get("cost_usd", 0.0)
+    result["_model"] = gw.get("model")
+    result["_cached"] = gw.get("cached", False)
     return result
 
 
