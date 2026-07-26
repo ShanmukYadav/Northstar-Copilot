@@ -1,0 +1,156 @@
+{
+  "correct": 18,
+  "total": 18,
+  "accuracy": 1.0,
+  "total_cost_usd": 0.052146,
+  "avg_cost_usd": 0.002897,
+  "p50_latency_s": 5.486303091049194,
+  "p95_latency_s": 8.403384447097778,
+  "match_mode": "semantic_v1",
+  "items": [
+    {
+      "id": "gs001",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.002861,
+      "latency": 8.403384447097778,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs002",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.002451,
+      "latency": 4.521952867507935,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs003",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.002698,
+      "latency": 4.157680034637451,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs004",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.003347,
+      "latency": 6.094754457473755,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs005",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.002929,
+      "latency": 4.741911888122559,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs006",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.002429,
+      "latency": 4.219696521759033,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs007",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.0029330000000000007,
+      "latency": 5.535343170166016,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs008",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.003926,
+      "latency": 6.546781778335571,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs009",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.003909,
+      "latency": 5.779828786849976,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs010",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.005072,
+      "latency": 7.37448525428772,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs011",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.004099,
+      "latency": 7.32384467124939,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs012",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.0030059999999999996,
+      "latency": 5.298286437988281,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs013",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.0030499999999999998,
+      "latency": 4.75208854675293,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs014",
+      "pass": true,
+      "status": "needs_clarification",
+      "cost": 0.0013130000000000001,
+      "latency": 3.265928268432617,
+      "detail": "status=needs_clarification"
+    },
+    {
+      "id": "gs015",
+      "pass": true,
+      "status": "needs_clarification",
+      "cost": 0.001313,
+      "latency": 5.486303091049194,
+      "detail": "status=needs_clarification"
+    },
+    {
+      "id": "gs016",
+      "pass": true,
+      "status": "refused",
+      "cost": 0.000533,
+      "latency": 1.570558786392212,
+      "detail": "status=refused"
+    },
+    {
+      "id": "gs017",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.002968,
+      "latency": 5.521942853927612,
+      "detail": "SQL result matches gold (semantic)"
+    },
+    {
+      "id": "gs018",
+      "pass": true,
+      "status": "answered",
+      "cost": 0.003309,
+      "latency": 5.302812337875366,
+      "detail": "SQL result matches gold (semantic)"
+    }
+  ]
+}
