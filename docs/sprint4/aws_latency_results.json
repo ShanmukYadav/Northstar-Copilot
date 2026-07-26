@@ -1,0 +1,242 @@
+{
+  "timestamp_utc": "2026-07-26T15:16:07.454010+00:00",
+  "base_url": "http://65.1.94.144:8000",
+  "ready": {
+    "ok": true,
+    "body": "{\"status\":\"ready\",\"checks\":{\"sandbox_db\":true,\"openrouter_key\":true}}"
+  },
+  "sequential": {
+    "label": "sequential",
+    "n": 12,
+    "ok": 12,
+    "errors": 0,
+    "p50_wall_s": 0.7711489499979507,
+    "p95_wall_s": 4.818891299999086,
+    "mean_wall_s": 2.0106032416661037,
+    "max_wall_s": 5.081125799999427,
+    "total_cost_usd": 0.01396,
+    "status_counts": {
+      "answered": 8,
+      "needs_clarification": 2,
+      "refused": 2
+    }
+  },
+  "concurrent": {
+    "label": "concurrent_w5",
+    "n": 10,
+    "ok": 10,
+    "errors": 0,
+    "p50_wall_s": 0.17199090000030992,
+    "p95_wall_s": 1.0620534700010467,
+    "mean_wall_s": 0.3286985199996707,
+    "max_wall_s": 1.0801909000001615,
+    "total_cost_usd": 0,
+    "status_counts": {
+      "answered": 8,
+      "needs_clarification": 1,
+      "refused": 1
+    }
+  },
+  "sequential_rows": [
+    {
+      "ok": true,
+      "question": "How many unique customers do we have?",
+      "status": "answered",
+      "latency_reported": 5.0281195640563965,
+      "latency_wall": 5.081125799999427,
+      "cost_usd": 0.0030800000000000003,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many orders have the status 'delivered'?",
+      "status": "answered",
+      "latency_reported": 4.568220853805542,
+      "latency_wall": 4.6043357999988075,
+      "cost_usd": 0.0029820000000000003,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Which product category has the most order items?",
+      "status": "answered",
+      "latency_reported": 4.4752724170684814,
+      "latency_wall": 4.521594099998765,
+      "cost_usd": 0.00345,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many distinct sellers are there?",
+      "status": "answered",
+      "latency_reported": 3.6895334720611572,
+      "latency_wall": 3.7199662999992142,
+      "cost_usd": 0.002602,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Why are sales down?",
+      "status": "needs_clarification",
+      "latency_reported": 4.206667423248291,
+      "latency_wall": 4.251285700000153,
+      "cost_usd": 0.0013130000000000001,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Update the price of product X to $50.",
+      "status": "refused",
+      "latency_reported": 1.353748083114624,
+      "latency_wall": 1.404336699997657,
+      "cost_usd": 0.000533,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many unique customers do we have?",
+      "status": "answered",
+      "latency_reported": 0.09895706176757812,
+      "latency_wall": 0.1379611999982444,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many orders have the status 'delivered'?",
+      "status": "answered",
+      "latency_reported": 0.09466361999511719,
+      "latency_wall": 0.1251036000030581,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Which product category has the most order items?",
+      "status": "answered",
+      "latency_reported": 0.10304808616638184,
+      "latency_wall": 0.13400209999963408,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many distinct sellers are there?",
+      "status": "answered",
+      "latency_reported": 0.04440903663635254,
+      "latency_wall": 0.07519719999982044,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Why are sales down?",
+      "status": "needs_clarification",
+      "latency_reported": 0.0001938343048095703,
+      "latency_wall": 0.04385990000082529,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Update the price of product X to $50.",
+      "status": "refused",
+      "latency_reported": 0.00011134147644042969,
+      "latency_wall": 0.0284704999976384,
+      "cost_usd": 0.0,
+      "error": null
+    }
+  ],
+  "concurrent_rows": [
+    {
+      "ok": true,
+      "question": "How many unique customers do we have?",
+      "status": "answered",
+      "latency_reported": 0.07956051826477051,
+      "latency_wall": 0.11241149999841582,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many orders have the status 'delivered'?",
+      "status": "answered",
+      "latency_reported": 0.14120793342590332,
+      "latency_wall": 0.17432600000029197,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Which product category has the most order items?",
+      "status": "answered",
+      "latency_reported": 0.20299863815307617,
+      "latency_wall": 0.24152959999992163,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many distinct sellers are there?",
+      "status": "answered",
+      "latency_reported": 0.03564882278442383,
+      "latency_wall": 0.09961049999765237,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Why are sales down?",
+      "status": "needs_clarification",
+      "latency_reported": 0.0002562999725341797,
+      "latency_wall": 1.0398855000021285,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Update the price of product X to $50.",
+      "status": "refused",
+      "latency_reported": 0.00015735626220703125,
+      "latency_wall": 0.03345970000009402,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many unique customers do we have?",
+      "status": "answered",
+      "latency_reported": 0.14540529251098633,
+      "latency_wall": 0.1851569999998901,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many orders have the status 'delivered'?",
+      "status": "answered",
+      "latency_reported": 0.12706899642944336,
+      "latency_wall": 0.16965580000032787,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "Which product category has the most order items?",
+      "status": "answered",
+      "latency_reported": 0.10455989837646484,
+      "latency_wall": 0.150758699997823,
+      "cost_usd": 0.0,
+      "error": null
+    },
+    {
+      "ok": true,
+      "question": "How many distinct sellers are there?",
+      "status": "answered",
+      "latency_reported": 0.04169273376464844,
+      "latency_wall": 1.0801909000001615,
+      "cost_usd": 0.0,
+      "error": null
+    }
+  ]
+}

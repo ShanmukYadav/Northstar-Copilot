@@ -1,0 +1,30 @@
+# Northstar Insight Copilot — local + AWS EC2 pilot
+# Usage:
+#   1. Create .env with OPENROUTER_API_KEY=...
+#   2. Ensure data/sandbox.duckdb exists OR data/olist_raw/*.csv present
+#   3. docker compose up --build -d
+#   4. Open http://localhost:8000/  (or http://PUBLIC_IP:8000/)
+
+services:
+  northstar:
+    build: .
+    image: northstar-copilot:latest
+    container_name: northstar-copilot
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    environment:
+      - OPENROUTER_API_KEY=${OPENROUTER_API_KEY}
+    volumes:
+      # Persist / provide DuckDB + optional raw CSVs
+      - ./data:/app/data
+      # Live code (so UI/pipeline fixes apply without full rebuild)
+      - ./src:/app/src
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 45s

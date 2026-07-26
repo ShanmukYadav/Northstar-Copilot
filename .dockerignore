@@ -1,0 +1,17 @@
+.git
+.venv
+venv
+__pycache__
+**/__pycache__
+*.pyc
+.pytest_cache
+.env
+.env.*
+*.md
+!README.md
+docs/sprint3
+.idea
+.vscode
+*.zip
+northstar-copilot
+.DS_Store
